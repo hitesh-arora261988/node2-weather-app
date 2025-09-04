@@ -1,5 +1,3 @@
-console.log("client side js has been loaded");
-
 document.querySelector("#location_search").addEventListener("click", (res) => {
   const location = document.querySelector("#location")?.value;
   getWeatherInfo(location);
