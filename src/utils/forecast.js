@@ -12,13 +12,14 @@ const forecast = (latitude, longitude, callback) => {
         callback("Unable to find location!", undefined);
       } else {
         const data = body;
-        console.log(data.current);
         const temprature = data.current?.temperature;
         const feelsLike = data.current?.feelslike;
-        callback(
-          undefined,
-          `It's currently ${temprature}F out. It feels like ${feelsLike}F.`
-        );
+        const weather_icon = data.current.weather_icons[0];
+        console.log();
+        callback(undefined, {
+          weatherInfo: `It's currently ${temprature}F out. It feels like ${feelsLike}F.`,
+          icon: weather_icon,
+        });
       }
     }
   );
